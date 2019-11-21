@@ -39,6 +39,7 @@ public class MessageWriter {
 
         if (this.bytesWriten >= this.messageInProccess.length) {
             if (this.writeQueue.size() > 0) {
+                this.messageInProccess.free();
                 this.messageInProccess = this.writeQueue.remove(0);
             } else {
                 this.messageInProccess = null;
